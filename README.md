@@ -35,4 +35,5 @@ weekLevel %>% ggplot( aes(y=Total,x=Week)) + geom_line() +
   labs(caption =paste0("Total Tolls = ",bigm(TotalTolls))) 
 ```
 
-
+### Tolls By Week 
+![](TollsByWeek.png)
