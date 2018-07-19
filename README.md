@@ -6,13 +6,13 @@ After cloning the repo you can run a few lines of R code to visualize what the t
 ```r
 library(lubridate)
 library(ggplot2)
-library(tidyverse)
+library(dplyr)
 
 
-mydata <- read.csv(file = "~/Documents/R/E470/tolls.csv")
+mydata <- read.csv(file = "https://raw.githubusercontent.com/Spoted21/ExpressToll/master/tolls.csv")
 names(mydata) <- gsub(pattern = "\\.",replacement = "",x = names(mydata))
 mydata$TransactionDateTime <- strptime(mydata$TransactionDateTime,format = 
-           "%m-%d-%Y %H:%M:%S")
+                                         "%m-%d-%Y %H:%M:%S")
 
 mydata$TransactionDateTime <- as.POSIXct(mydata$TransactionDateTime )
 mydata$Date <- as.Date(mydata$TransactionDateTime )
