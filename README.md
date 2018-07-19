@@ -24,15 +24,17 @@ mydata$Week <- floor_date(mydata$Date, unit = "week")
 bigm <- function(x) paste0("$",formatC(x = x,digits = 0,format = "d"))
 TotalTolls <- sum(mydata$Amount)
 
+png("TollsByWeek.png")
 mydata %>%
   group_by(Week) %>%
   summarise(Total = sum(Amount)) %>%
   data.frame() %>% 
-  ggplot( aes(y=Total,x=Week)) + geom_line() +
+  ggplot( aes(y=Total,x=Week)) + 
+  # geom_line() +
   geom_smooth() +
   geom_point(color="red") + 
   labs(caption =paste0("Total Tolls = ",bigm(TotalTolls)))
-
+dev.off()
 ```
 
 ### Tolls By Week 
