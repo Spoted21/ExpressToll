@@ -9,7 +9,7 @@ library(ggplot2)
 library(dplyr)
 
 
-mydata <- read.csv(file = "https://raw.githubusercontent.com/Spoted21/ExpressToll/master/tolls.csv")
+mydata <- read.csv(file = "tolls.csv")
 names(mydata) <- gsub(pattern = "\\.",replacement = "",x = names(mydata))
 mydata$TransactionDateTime <- strptime(mydata$TransactionDateTime,format = 
                                          "%m-%d-%Y %H:%M:%S")
@@ -21,7 +21,7 @@ mydata$Amount <-as.numeric( gsub(pattern = "\\$",replacement = "",
 mydata$Week <- floor_date(mydata$Date, unit = "week")
 
 
-bigm <- function(x) paste0("$",formatC(x = x,digits = 0,format = "d"))
+bigm <- function(x) paste0("$",formatC(x = x,digits = 0,big.mark = ",",format = "d"))
 TotalTolls <- sum(mydata$Amount)
 
 png("TollsByWeek.png")
@@ -33,7 +33,7 @@ mydata %>%
   # geom_line() +
   geom_smooth() +
   geom_point(color="red") + 
-  labs(caption =paste0("Total Tolls = ",bigm(TotalTolls)))
+  ggtitle(label = paste0("Total Tolls = ",bigm(TotalTolls) ) ) 
 dev.off()
 ```
 
