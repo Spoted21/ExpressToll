@@ -31,8 +31,8 @@ mydata %>%
   data.frame() %>% 
   ggplot( aes(y=Total,x=Week)) + 
   # geom_line() +
-  geom_smooth() +
-  geom_point(color="red") + 
+  geom_smooth(color="cyan4") +
+  geom_point(color="black") + 
   ggtitle(label = paste0("Total Tolls = ",bigm(TotalTolls) ) ) 
 dev.off()
 ```
@@ -41,4 +41,8 @@ dev.off()
 ![](TollsByWeek.png)
 
 ### Tolls By Day of Week
+```r
+readCode <- readLines("additionalCode.R")
+print(readCode,sep="\n" )
+```
 ![](pareto.png)
