@@ -41,6 +41,4 @@ dev.off()
 ![](TollsByWeek.png)
 
 ### Tolls By Day of Week
-
-```
 ![](pareto.png)
