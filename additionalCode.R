@@ -55,13 +55,15 @@ bar <- barplot(plotData$Amount,
         # ylab = "Cummulative Dollars" , 
         cex.names = 0.7, 
           names.arg = plotData$day,
-        main = "Pareto Chart")
+        main = "Tolls Per Day")
 lines(bar,
       plotData$cumsum, 
       type = "b", 
       cex = 0.7, 
       pch = 19, 
-      col="cyan4") 
+      col="cyan4",
+      lwd=2
+      ) 
 axis(side = 2, 
      at = axTicks(2), 
      las = 1, 
