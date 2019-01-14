@@ -41,8 +41,6 @@ dev.off()
 ![](TollsByWeek.png)
 
 ### Tolls By Day of Week
-```r
-readCode <- readLines("additionalCode.R")
-print(readCode,sep="\n" )
+
 ```
 ![](pareto.png)
